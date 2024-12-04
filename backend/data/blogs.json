@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Understanding JavaScript Closures",
+    "shortDes": "A deep dive into closures in JavaScript.",
+    "thumbnail": "closures_thumb.jpg",
+    "blogsImg": "closures_img.jpg",
+    "content": "Closures are a fundamental concept in JavaScript...",
+    "categoryID": 1,
+    "tags": ["JavaScript", "Closures", "Programming"],
+    "adminID": 1,
+    "comments": [
+      {
+        "commentText": "Great explanation of closures!",
+        "userID": 1
+      },
+      {
+        "commentText": "Very helpful article!",
+        "userID": 2
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Introduction to React Hooks",
+    "shortDes": "Getting started with React Hooks.",
+    "thumbnail": "react_hooks_thumb.jpg",
+    "blogsImg": "react_hooks_img.jpg",
+    "content": "React Hooks allow you to use state and other React features...",
+    "categoryID": 2,
+    "tags": ["React", "Hooks", "Web Development"],
+    "adminID": 1,
+    "comments": []
+  },
+  {
+    "id": 3,
+    "title": "MongoDB for Beginners",
+    "shortDes": "Learn the basics of MongoDB.",
+    "thumbnail": "mongodb_thumb.jpg",
+    "blogsImg": "mongodb_img.jpg",
+    "content": "MongoDB is a NoSQL database that uses JSON-like documents...",
+    "categoryID": 3,
+    "tags": ["MongoDB", "Database", "NoSQL"],
+    "adminID": 2,
+    "comments": [
+      {
+        "commentText": "This helped me understand MongoDB better.",
+        "userID": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "categories": "JavaScript"
+  },
+  {
+    "id": 2,
+    "categories": "React"
+  },
+  {
+    "id": 3,
+    "categories": "MongoDB"
+  }
+]

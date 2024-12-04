@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Charlie Brown",
+    "email": "charlie@example.com",
+    "password": "hashed_password_789",
+    "otpCode": "203948",
+    "commentsID": [1, 2]
+  },
+  {
+    "id": 2,
+    "name": "Dana White",
+    "email": "dana@example.com",
+    "password": "hashed_password_321",
+    "otpCode": "675839",
+    "commentsID": [3]
+  }
+]

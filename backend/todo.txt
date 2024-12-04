@@ -1,0 +1,73 @@
+MongoDB Schema: 
+1. Admin
+  > name
+  > bio
+  > email
+  > password
+  > otpCode
+  > adminImg
+  > blogsID
+  > servicesID
+
+2. User
+  > name
+  > email
+  > password
+  > otpCode
+  > commentID
+
+3. Blogs
+  > title
+  > shortDes
+  > thumbnail
+  > blogsImg
+  > content
+  > categoryID
+  > tags
+  > adminID
+  >  Comments
+      > commentText
+      > userID
+
+4. Category
+  > categories
+ 
+5. Service
+  > serviceThumbnail
+  > serviceTitle
+  > serviceDescription
+
+
+Routes:
+1. app
+  > login
+  > loginVerify
+  > updateUser
+  > getBlogs
+  > getBlogsByID
+  > getServices
+  > getCommentsByBlogId
+  > getCategories
+  > getCategoriesById
+
+2. admin
+  > setAuthor
+  > getAuthor
+  > getBlogs
+  > getBlogsByID
+  > setBlog
+  > setService
+  > getServices
+  > getServicesByID
+  > getComments
+  > setComment
+  > getCategories
+  > getCategoriesById
+  > setCategories
+
+Create MongoDB Model/Schema:
+  > Admin
+  > User
+  > Blogs
+  > Service
+  > Categories

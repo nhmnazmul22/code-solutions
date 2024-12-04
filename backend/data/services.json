@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "serviceThumbnail": "web_dev_thumb.jpg",
+    "serviceTitle": "Web Development",
+    "serviceDescription": "Full-stack web development services."
+  },
+  {
+    "id": 2,
+    "serviceThumbnail": "seo_thumb.jpg",
+    "serviceTitle": "SEO Optimization",
+    "serviceDescription": "Improve your site's search engine ranking."
+  }
+]
