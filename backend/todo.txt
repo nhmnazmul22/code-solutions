@@ -40,30 +40,43 @@ MongoDB Schema:
 
 Routes:
 1. app
-  > login
-  > loginVerify
+  > setUser
+  > getUser
+  > userVerify
   > updateUser
+
   > getBlogs
   > getBlogsByID
+
   > getServices
-  > getCommentsByBlogId
+
   > getCategories
-  > getCategoriesById
+  > getCategoriesByID
 
 2. admin
-  > setAuthor
-  > getAuthor
+  > setAdmin
+  > getAdmin
+  > updateAdmin
+  > logoutAdmin
+
+  > getUser
+  > updateUser
+  > removeUser
+
   > getBlogs
   > getBlogsByID
   > setBlog
+  > removeBlog
+
   > setService
   > getServices
-  > getServicesByID
-  > getComments
-  > setComment
+  > updateService
+  > removeServices
+
   > getCategories
-  > getCategoriesById
   > setCategories
+  > updateCategories
+  > removeCategories
 
 Create MongoDB Model/Schema:
   > Admin

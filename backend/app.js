@@ -10,6 +10,8 @@ import mongoose from "mongoose";
 import xss from "xss-clean";
 
 // === Internal Imports ===
+import adminRoute from "./routes/admin.js";
+import userRoute from "./routes/user.js";
 import {
   DATABASE_URI,
   MAX_JSON_FILE,
@@ -17,7 +19,6 @@ import {
   REQUEST_LIMIT,
   REQUEST_TIME,
 } from "./src/config/config.js";
-import { DefaultError, NotFoundError } from "./src/utility/errorHandler.js";
 
 // === Initial Express app ===
 const app = express();
@@ -35,18 +36,16 @@ app.use(xss());
 app.use(limit);
 
 // === App Routes ===
+app.use("/app", userRoute);
+
+// === Admin Routes ===
+app.use("/admin", adminRoute);
 
 // === Database Connection ===
 mongoose
   .connect(DATABASE_URI, { autoIndex: true })
   .then(() => console.log("Database Connection Successful"))
   .catch(() => console.log("Database Connection Failed"));
-
-// === Not Found Error Handler ===
-app.use(NotFoundError);
-
-// === Default Error Handler ===
-app.use(DefaultError);
 
 // === Server Listen ===
 app.listen(PORT, () => {

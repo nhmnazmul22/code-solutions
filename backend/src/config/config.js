@@ -1,7 +1,7 @@
 // === Application Environment Variables ===
 export const PORT = 5000;
 export const DATABASE_URI =
-  "mongodb+srv://nhmnazmul22:nhmnazmul22@cluster0.mnssu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/codeBlogger";
+  "mongodb+srv://nhmnazmul22:nhmnazmul22@cluster0.mnssu.mongodb.net/codeBlogger";
 export const JWT_KEY = "IjD5WURrpGGDWAvl3iHdjfmWQMeNFZQW4lSYIxa4NSw";
 export const JWT_EXPIRED_TIME = 30 * 24 * 60 * 60;
 export const HOST_SITE = "http://localhost:5000/api/";
