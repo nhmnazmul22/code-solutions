@@ -26,7 +26,7 @@ const limit = rateLimit({ windowMs: REQUEST_TIME, max: REQUEST_LIMIT });
 
 // === Use Default Middlewares ===
 app.use(express.json({ max: MAX_JSON_FILE }));
-app.use(express.urlencoded({ max: MAX_JSON_FILE }));
+app.use(express.urlencoded({ max: MAX_JSON_FILE, extended: true }));
 app.use(cookieParser());
 app.use(cors());
 app.use(ExpressMongoSanitize());
@@ -51,7 +51,6 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Server Listening on ${PORT} Port.`);
 });
-
 
 // Export the app
 export default app;
