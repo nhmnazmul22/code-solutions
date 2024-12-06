@@ -20,7 +20,7 @@ export const SetServiceDataService = async (req) => {
   try {
     const reqBody = req.body;
     const adminID = req.headers.id;
-    const admin = await AdminModel.findOne({ _id: adminId });
+    const admin = await AdminModel.findOne({ _id: adminID });
     if (admin) {
       const service = await ServiceModel.findOne(reqBody);
       if (!service) {
