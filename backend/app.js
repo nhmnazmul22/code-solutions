@@ -23,7 +23,7 @@ import {
 // === Initial Express app ===
 const app = express();
 
-// Trust proxy for correct IP extraction
+// Trust proxy for correct IP extraction (useful in production)
 app.set("trust proxy", true);
 
 const limit = rateLimit({
@@ -59,8 +59,6 @@ mongoose
 
 // === Server Listen ===
 app.listen(PORT, () => {
-  console.log(`Server Listening on ${PORT} Port.`);
+  console.log(`Server Listening on port ${PORT}`);
 });
 
-// Export the app
-export default app;
