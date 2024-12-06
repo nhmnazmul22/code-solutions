@@ -22,7 +22,17 @@ import {
 
 // === Initial Express app ===
 const app = express();
-const limit = rateLimit({ windowMs: REQUEST_TIME, max: REQUEST_LIMIT });
+
+// Trust proxy for correct IP extraction
+app.set("trust proxy", true);
+
+const limit = rateLimit({
+  windowMs: REQUEST_TIME,
+  max: REQUEST_LIMIT,
+  keyGenerator: (req) => {
+    return req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+  },
+});
 
 // === Use Default Middlewares ===
 app.use(express.json({ max: MAX_JSON_FILE }));
