@@ -7,8 +7,7 @@
     "password": "hashed_password_123",
     "otpCode": "849203",
     "adminImg": "alice_admin.jpg",
-    "blogsID": [1, 2],
-    "servicesID": [1]
+    "blogsID": [1, 2]
   },
   {
     "id": 2,
@@ -18,7 +17,6 @@
     "password": "hashed_password_456",
     "otpCode": "593847",
     "adminImg": "bob_admin.jpg",
-    "blogsID": [3],
-    "servicesID": [2]
+    "blogsID": [3]
   }
 ]

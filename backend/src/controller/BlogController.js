@@ -7,10 +7,22 @@ export const getBlogs = async (req, res) => {
   res.json(result);
 };
 
-export const getBlogByID = async () => {};
+export const getBlogByID = async (req, res) => {
+  const result = await BlogsServices.GetBlogByIDService(req);
+  res.json(result);
+};
 
-export const setBlog = async () => {};
+export const setBlog = async (req, res) => {
+  const result = await BlogsServices.SetBlogService(req);
+  res.json(result);
+};
 
-export const updateBlog = async () => {};
+export const updateBlog = async (req, res) => {
+  const result = await BlogsServices.UpdateBlogService(req);
+  res.json(result);
+};
 
-export const removeBlog = async () => {};
+export const removeBlog = async (req, res) => {
+  const result = await BlogsServices.RemoveBlogService(req);
+  res.json(result);
+};

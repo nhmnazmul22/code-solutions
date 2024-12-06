@@ -9,15 +9,9 @@ const DataSchema = new mongoose.Schema(
     blogImg: { type: String, require: true },
     content: { type: String, require: true },
     tags: [{ type: String, require: true }],
-    categoryID: { type: mongoose.Types.ObjectId, require: true },
+    category: { type: String, require: true },
     adminID: { type: mongoose.Types.ObjectId, require: true },
-    comments: [
-      {
-        commentText: { type: String, require: true },
-        userID: { type: mongoose.Types.ObjectId, require: true },
-        createdAt: { type: Date, default: Date.now },
-      },
-    ],
+    commentsID: [{ type: mongoose.Types.ObjectId, require: true }],
   },
   { timestamps: true, versionKey: false }
 );

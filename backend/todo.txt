@@ -37,6 +37,17 @@ MongoDB Schema:
   > serviceTitle
   > serviceDescription
 
+6. Team
+   > name
+   > bio
+   > profileImg
+   > role
+
+7. Customer
+   > name
+   > email
+   > subject
+   > message
 
 Routes:
 1. app
@@ -52,6 +63,10 @@ Routes:
 
   > getCategories
   > getCategoriesByID
+
+  > getTeam
+
+  > setCustomer
 
 2. admin
   > setAdmin
@@ -77,6 +92,14 @@ Routes:
   > setCategories
   > updateCategories
   > removeCategories
+
+  > getTeam
+  > setTeam
+  > updateTeam
+  > deleteTeam
+
+  > getCustomer
+  > deleteCustomer
 
 Create MongoDB Model/Schema:
   > Admin

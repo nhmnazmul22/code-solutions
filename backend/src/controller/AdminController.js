@@ -1,10 +1,29 @@
 // === Internal Imports ===
+import * as AdminServices from "../services/AdminServices.js";
 
 // === Route Controller ===
-export const getServices = async () => {};
+export const signupAdmin = async (req, res) => {
+  const result = await AdminServices.signupService(req);
+  return res.json(result);
+};
 
-export const setService = async () => {};
+export const loginAdmin = async (req,res) => {
+  const result = await AdminServices.loginService(req, res);
+  return res.json(result);
+};
 
-export const updateService = async () => {};
+export const getAdminProfile = async (req, res) => {
+  const result = await AdminServices.getProfileService(req);
+  return res.json(result);
+};
 
-export const removeService = async () => {};
+export const updateAdminProfile = async (req, res) => {
+  const result = await AdminServices.updateProfileService(req);
+  return res.json(result);
+};
+
+
+export const logoutAdmin = async (req,res) => {
+  const result = await AdminServices.logoutService(req, res);
+  return res.json(result);
+};
