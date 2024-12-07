@@ -13,7 +13,7 @@ const Login = () => {
     password: "",
   });
   const navigate = useNavigate();
-  const { adminLogin, getAdminInfo } = useAdminStore();
+  const { adminLogin } = useAdminStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +27,6 @@ const Login = () => {
     } else {
       setLoading(true);
       await adminLogin(loginInfo);
-      await getAdminInfo();
       const token = getToken("adminToken");
       if (token) {
         setLoading(false);

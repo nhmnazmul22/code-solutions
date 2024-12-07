@@ -1,3 +1,5 @@
+const expirationTime = new Date().getTime() + 1000 * 60 * 60 * 24 * 30;
+
 export function unauthorized(code) {
   if (code === 401) {
     sessionStorage.clear();

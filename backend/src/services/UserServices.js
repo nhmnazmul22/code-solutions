@@ -70,6 +70,7 @@ export const loginService = async (req, res) => {
         const cookieOptions = {
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30), // 30 days
           httpOnly: true,
+          secure: true,
           path: "/app",
           sameSite: "strict",
         };
