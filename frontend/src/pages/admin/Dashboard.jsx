@@ -6,8 +6,9 @@ const Dashboard = () => {
   const { getAdminInfo } = useAdminStore();
 
   useEffect(() => {
-    getAdminInfo();
-    return;
+    (async () => {
+      await getAdminInfo();
+    })();
   }, []);
 
   return (

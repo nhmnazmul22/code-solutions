@@ -72,11 +72,11 @@ export const loginService = async (req, res) => {
         const token = EncodedToken(admin._id, reqBody["email"]);
 
         const cookieOptions = {
+          httpOnly: true,
+          secure: true,
+          path: "/",
+          sameSite: "None",
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-          httpOnly: true, 
-          secure: process.env.NODE_ENV === "production" ? true : false,
-          path: "/", 
-          sameSite: "None", 
         };
         res.cookie("adminToken", token, cookieOptions);
 

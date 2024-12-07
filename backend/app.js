@@ -37,11 +37,13 @@ const limit = rateLimit({
 // === Use Default Middlewares ===
 app.use(express.json({ max: MAX_JSON_FILE }));
 app.use(express.urlencoded({ max: MAX_JSON_FILE, extended: true }));
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    credentials: true,
+  })
+);
 app.use(cookieParser());
-app.use(cors({
-  origin: ["http://localhost:5173"], 
-  credentials: true, 
-}));
 app.use(ExpressMongoSanitize());
 app.use(helmet());
 app.use(hpp());
@@ -64,4 +66,3 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Server Listening on port ${PORT}`);
 });
-
