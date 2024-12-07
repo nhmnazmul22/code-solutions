@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-[80px_1fr] lg:grid-cols-[230px_1fr] ">
+      <div className="grid grid-cols-[60px_1fr] lg:grid-cols-[230px_1fr] ">
         <div className="">
           <SideMenubar />
         </div>

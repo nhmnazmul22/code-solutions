@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AdminLogo from "../../../assets/images/codeSolution-Admin.png";
+import useAdminStore from "../../../store/AdminStore";
 
 const Navbar = () => {
+  const { adminInfo } = useAdminStore();
+
   return (
     <div className="navbar bg-base-200 shadow-sm py-3 px-10">
       <div className="flex-1">
@@ -18,10 +21,7 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img
-                alt=""
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-              />
+              <img alt="" src={adminInfo?.profileImg} />
             </div>
           </div>
           <ul

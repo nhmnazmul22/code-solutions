@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import AdminImg from "../../assets/images/codeSolution-Admin.png";
-import useAdminStore from "../../store/adminStore/AdminStore";
+import useAdminStore from "../../store/AdminStore";
 import ValidationHelper from "../../utility/ValidationHelper";
 import { getToken } from "../../utility/utility";
 

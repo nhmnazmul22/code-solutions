@@ -5,92 +5,94 @@ import { TbMessageChatbot } from "react-icons/tb";
 import { HiOutlineNewspaper } from "react-icons/hi2";
 import { MdHomeRepairService } from "react-icons/md";
 import { PiMicrosoftTeamsLogoFill } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const SideMenu = () => {
+  const activeClass = ({ isActive }) =>
+    isActive ? "bg-blue-500 text-white" : "";
   return (
     <>
       <ul className="hidden lg:flex flex-col">
-        <Link to="/admin/users">
+        <NavLink to="/admin/users" className={activeClass}>
           <li className="sidebar-menu-item">
             <FaUsers size={30} /> Users
           </li>
-        </Link>
+        </NavLink>
         <div className="divider  m-0 h-0"></div>
-        <Link to="/admin/teams">
+        <NavLink to="/admin/teams" className={activeClass}>
           <li className="sidebar-menu-item">
             <PiMicrosoftTeamsLogoFill size={30} /> Teams
           </li>
-        </Link>
+        </NavLink>
         <div className="divider  m-0 h-0"></div>
-        <Link to="/admin/services">
+        <NavLink to="/admin/services" className={activeClass}>
           <li className="sidebar-menu-item">
             {" "}
             <MdHomeRepairService size={30} />
             Services
           </li>
-        </Link>
+        </NavLink>
         <div className="divider  m-0 h-0"></div>
-        <Link to="/admin/blogs">
+        <NavLink to="/admin/blogs" className={activeClass}>
           <li className="sidebar-menu-item">
             {" "}
             <HiOutlineNewspaper size={30} />
             Blogs
           </li>
-        </Link>
+        </NavLink>
         <div className="divider m-0 h-0"></div>
-        <Link to="/admin/customerMessages">
+        <NavLink to="/admin/customerMessages" className={activeClass}>
           <li className="sidebar-menu-item">
             {" "}
             <TbMessageChatbot size={30} />
             Customer
           </li>
-        </Link>
+        </NavLink>
       </ul>
       {/* Mobile Side bar Menu */}
       <ul className="flex flex-col lg:hidden">
-        <Link to="/admin/users">
+        <NavLink to="/admin/users" className={activeClass}>
           <li className="mobile-sidebar-menu-item">
             <span className="tooltip tooltip-right" data-tip="Users">
-              <FaUsers size={30} />
+              <FaUsers size={26} />
             </span>
           </li>
-        </Link>
+        </NavLink>
         <div className="divider  m-0 h-0"></div>
-        <Link to="/admin/teams">
+        <NavLink to="/admin/teams" className={activeClass}>
           <li className="mobile-sidebar-menu-item">
             <span className="tooltip tooltip-right" data-tip="Teams">
-              <PiMicrosoftTeamsLogoFill size={30} />
+              <PiMicrosoftTeamsLogoFill size={26} />
             </span>
           </li>
-        </Link>
+        </NavLink>
         <div className="divider  m-0 h-0"></div>
-        <Link to="/admin/services">
+        <NavLink to="/admin/services" className={activeClass}>
           <li className="mobile-sidebar-menu-item">
             <span className="tooltip tooltip-right" data-tip="Services">
-              <MdHomeRepairService size={30} />
+              <MdHomeRepairService size={26} />
             </span>
           </li>
-        </Link>
+        </NavLink>
         <div className="divider  m-0 h-0"></div>
-        <Link to="/admin/blogs">
+        <NavLink to="/admin/blogs" className={activeClass}>
           <li className="mobile-sidebar-menu-item">
             <span className="tooltip tooltip-right" data-tip="Blogs">
-              <HiOutlineNewspaper size={30} />
+              <HiOutlineNewspaper size={26} />
             </span>
           </li>
-        </Link>
+        </NavLink>
         <div className="divider m-0 h-0"></div>
-        <Link to="/admin/customerMessages">
+        <NavLink to="/admin/customerMessages" className={activeClass}>
           <li className="mobile-sidebar-menu-item">
             <span
               className="tooltip tooltip-right"
               data-tip="Customer Messages"
             >
-              <TbMessageChatbot size={30} />
+              <TbMessageChatbot size={26} />
             </span>
           </li>
-        </Link>
+        </NavLink>
       </ul>
     </>
   );

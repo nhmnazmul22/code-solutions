@@ -1,12 +1,13 @@
 import React from "react";
+import Users from "../../components/admin/Users";
 import Layout from "../../components/admin/layout/Layout";
 
-const Users = () => {
+const UsersPage = () => {
   return (
     <Layout>
-      <div>Users</div>
+      <Users />
     </Layout>
   );
 };
 
-export default Users;
+export default UsersPage;

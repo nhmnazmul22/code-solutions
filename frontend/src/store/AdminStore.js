@@ -1,6 +1,7 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 import { create } from "zustand";
-import { getToken, removeToken, setToken } from "../../utility/utility";
+import { getToken, removeToken, setToken } from "../utility/utility";
 const BASE_URL = "https://code-solutions-one.vercel.app/admin";
 
 const useAdminStore = create((set) => ({
@@ -8,7 +9,9 @@ const useAdminStore = create((set) => ({
 
   isAdminLogin: false,
   adminLogin: async (loginInfo) => {
-    const res = await axios.post(`${BASE_URL}/loginAdmin`, loginInfo);
+    const res = await axios.post(`${BASE_URL}/loginAdmin`, loginInfo, {
+      withCredentials: true,
+    });
     if (res.data.status === "Success") {
       set({ isAdminLogin: true });
       setToken("adminToken", res.data.token);
@@ -31,7 +34,11 @@ const useAdminStore = create((set) => ({
     const res = await axios.get(`${BASE_URL}/getAdminProfile`, {
       withCredentials: true,
     });
-    console.log(res);
+    if (res.data.status === "Success") {
+      set({ adminInfo: res.data.data });
+    } else {
+      toast.error("Admin info not found");
+    }
   },
 }));
 

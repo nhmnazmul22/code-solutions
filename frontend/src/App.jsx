@@ -8,7 +8,7 @@ import Dashboard from "./pages/admin/Dashboard";
 import LoginPage from "./pages/admin/LoginPage";
 import ServicesPage from "./pages/admin/ServicesPage";
 import TeamPage from "./pages/admin/TeamPage";
-import Users from "./pages/admin/Users";
+import UsersPage from "./pages/admin/UsersPage";
 import ProtectedRoute from "./routes/ProtectRoutes";
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           path="/admin/users"
           element={
             <ProtectedRoute>
-              <Users />
+              <UsersPage />
             </ProtectedRoute>
           }
         />

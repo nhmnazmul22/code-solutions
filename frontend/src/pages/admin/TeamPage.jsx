@@ -1,10 +1,11 @@
 import React from "react";
 import Layout from "../../components/admin/layout/Layout";
+import Team from "../../components/admin/Team";
 
 const TeamPage = () => {
   return (
     <Layout>
-      <div>TeamPage</div>
+      <Team />
     </Layout>
   );
 };
