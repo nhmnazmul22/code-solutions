@@ -70,7 +70,6 @@ export const loginService = async (req, res) => {
         const cookieOptions = {
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30), // 30 days
           httpOnly: true,
-          secure: true,
           path: "/app",
           sameSite: "strict",
         };
@@ -183,7 +182,10 @@ export const getUsersService = async (req) => {
     const admin = await AdminModel.findOne({ _id: adminID, email: email });
 
     if (admin) {
-      const data = await UserModel.find({}, { comments: 0, messages: 0, password:0, commentsID:0 });
+      const data = await UserModel.find(
+        {},
+        { comments: 0, messages: 0, password: 0, commentsID: 0 }
+      );
       return { status: "Success", data: data };
     } else {
       return { status: "Failed", data: "Admin Not Found" };

@@ -13,10 +13,11 @@ const Login = () => {
     password: "",
   });
   const navigate = useNavigate();
-  const { adminLogin } = useAdminStore();
+  const { adminLogin, getAdminInfo } = useAdminStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!ValidationHelper.IsEmail(loginInfo.email)) {
       toast.error("Valid Email Address Required");
     } else if (!ValidationHelper.Ispassword(loginInfo.password)) {
@@ -26,6 +27,7 @@ const Login = () => {
     } else {
       setLoading(true);
       await adminLogin(loginInfo);
+      await getAdminInfo();
       const token = getToken("adminToken");
       if (token) {
         setLoading(false);

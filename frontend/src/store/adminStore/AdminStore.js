@@ -27,6 +27,12 @@ const useAdminStore = create((set) => ({
   },
 
   // Admin Login Manage End
+
+  adminInfo: null,
+  getAdminInfo: async () => {
+    const res = await axios.get(`${BASE_URL}/getAdminProfile`);
+    console.log(res);
+  },
 }));
 
 export default useAdminStore;
