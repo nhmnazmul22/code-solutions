@@ -39,7 +39,7 @@ app.use(express.json({ max: MAX_JSON_FILE }));
 app.use(express.urlencoded({ max: MAX_JSON_FILE, extended: true }));
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );

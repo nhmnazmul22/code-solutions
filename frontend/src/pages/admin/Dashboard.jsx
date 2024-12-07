@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Layout from "../../components/admin/layout/Layout";
 import useAdminStore from "../../store/adminStore/AdminStore";
 
 const Dashboard = () => {
   const { getAdminInfo } = useAdminStore();
 
-  useEffect(() => {
-    (async () => {
-      await getAdminInfo();
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     await getAdminInfo();
+  //   })();
+  // }, []);
 
   return (
     <Layout>

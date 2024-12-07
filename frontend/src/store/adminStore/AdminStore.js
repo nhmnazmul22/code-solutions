@@ -1,7 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
 import { getToken, removeToken, setToken } from "../../utility/utility";
-
 const BASE_URL = "https://code-solutions-one.vercel.app/admin";
 
 const useAdminStore = create((set) => ({
