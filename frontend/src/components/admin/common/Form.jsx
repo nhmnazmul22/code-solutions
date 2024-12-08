@@ -1,21 +1,16 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import TextEditor from "./TextEditor";
 
 const Form = ({
   fromTitle,
   fields,
   isSelectDisable,
   selectValues,
-  isEditorDisable,
   mainFaction,
   initialData,
-  url, // Pass initial data for updates
+  url,
 }) => {
-  const id = useId();
-  console.log(initialData);
-  const [content, setContent] = useState(initialData?.content || "");
-  const [imgUrl, setImgUrl] = useState(initialData?.profileImg || "");
+  const [imgUrl, setImgUrl] = useState(initialData?.imgUrl || "");
   const [loading, setLoading] = useState(false);
   const [formFields, setFormFields] = useState(
     fields.reduce((acc, field) => {
@@ -24,34 +19,7 @@ const Form = ({
     }, {})
   );
 
-  const selectDisable = isSelectDisable ? "hidden" : "flex";
-  const editorDisable = isEditorDisable ? "hidden" : "flex";
   const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormFields((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formDataObject = {
-      ...formFields,
-      profileImg: imgUrl,
-    };
-
-    if (!isEditorDisable) {
-      formDataObject.content = content;
-    }
-
-    setLoading(true);
-    const res = await mainFaction(formDataObject, initialData?._id);
-    if (res) {
-      setLoading(false);
-      navigate(url);
-      console.log(formDataObject);
-    }
-  };
 
   useEffect(() => {
     if (initialData) {
@@ -61,10 +29,32 @@ const Form = ({
           return acc;
         }, {})
       );
-      setContent(initialData.content || "");
-      setImgUrl(initialData.profileImg || "");
+      setImgUrl(initialData?.imgUrl || "");
     }
   }, [initialData, fields]);
+
+  // Input Handling
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormFields((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Form Handling
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formDataObject = {
+      ...formFields,
+      imgUrl: imgUrl,
+    };
+    console.log(formDataObject);
+    setLoading(true);
+    const res = await mainFaction(formDataObject, initialData?._id);
+    setLoading(false);
+
+    if (res) {
+      navigate(url);
+    }
+  };
 
   return (
     <div className="p-5 my-1">
@@ -72,7 +62,7 @@ const Form = ({
         {fromTitle}
       </h2>
       <div className="divider"></div>
-      <form className="" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="avatar mb-5 w-full">
           <div className="w-64 m-auto rounded-lg">
             <img src={imgUrl || `https://placehold.co/400`} alt="Profile" />
@@ -80,60 +70,60 @@ const Form = ({
         </div>
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-3 w-full">
-            <label htmlFor={id} className="font-semibold cursor-pointer">
-              Img Url:
-            </label>
+            <label className="font-semibold cursor-pointer">Img Url:</label>
             <input
               type="url"
-              name="Img"
+              name="imgUrl"
               placeholder="Your Img Url"
               value={imgUrl}
               onChange={(e) => setImgUrl(e.target.value)}
-              id={id}
               className="input input-bordered w-full"
             />
           </div>
           {fields.map((field) => (
             <div key={field.name} className="flex flex-col gap-3 w-full">
-              <label htmlFor={id} className="font-semibold cursor-pointer">
+              <label className="font-semibold cursor-pointer">
                 {field.label}
               </label>
-              <input
-                type={field.type || "text"}
-                name={field.name}
-                placeholder={field.placeholder}
-                value={formFields[field.name]}
-                onChange={handleChange}
-                id={id}
-                className="input input-bordered w-full"
-                required={field.required}
-              />
+              {field.name === "description" ? (
+                <textarea
+                  name={field.name}
+                  className="textarea textarea-bordered h-64"
+                  placeholder={field.placeholder}
+                  value={formFields[field.name]}
+                  onChange={handleChange}
+                ></textarea>
+              ) : (
+                <input
+                  type={field.type || "text"}
+                  name={field.name}
+                  placeholder={field.placeholder}
+                  value={formFields[field.name]}
+                  onChange={handleChange}
+                  className="input input-bordered w-full"
+                  required={field.required}
+                />
+              )}
             </div>
           ))}
-          <div className={`flex flex-col gap-3 w-full ${selectDisable}`}>
-            <label htmlFor={id} className="font-semibold cursor-pointer">
-              Role:
-            </label>
-            <select
-              name="role"
-              value={formFields.role || ""}
-              onChange={handleChange}
-              className="select select-bordered w-full"
-            >
-              <option value="">Choose a Role</option>
-              {selectValues.map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className={`flex flex-col gap-3 w-full ${editorDisable}`}>
-            <label htmlFor={id} className="font-semibold cursor-pointer">
-              Description:
-            </label>
-            <TextEditor content={content} setContent={setContent} />
-          </div>
+          {isSelectDisable ? null : (
+            <div className="flex flex-col gap-3 w-full">
+              <label className="font-semibold cursor-pointer">Role:</label>
+              <select
+                name="role"
+                value={formFields.role || ""}
+                onChange={handleChange}
+                className="select select-bordered w-full"
+              >
+                <option value="">Choose a Role</option>
+                {selectValues.map((value) => (
+                  <option key={value} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
         </div>
         <button
           type="submit"

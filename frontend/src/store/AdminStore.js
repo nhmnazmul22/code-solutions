@@ -23,9 +23,11 @@ const useAdminStore = create((set) => ({
     const token = getToken("adminToken");
     set({ isAdminLogin: !!token });
   },
+
   adminLogout: () => {
     set({ isAdminLogin: false });
     removeToken("adminToken");
+    toast.success("Logout Successful");
   },
 
   // Admin Login Manage End

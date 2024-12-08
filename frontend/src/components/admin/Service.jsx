@@ -11,6 +11,11 @@ const Service = () => {
     await deleteService(serviceID);
   };
 
+  const fields = [
+    { label: "Service Title", name: "title" },
+    { label: "Description", name: "description" },
+  ];
+
   useEffect(() => {
     (async () => {
       await getServicesInfo();
@@ -46,7 +51,7 @@ const Service = () => {
               object={service}
               isDisable={false}
               handleDeleteAction={serviceDelete}
-              fieldNames={["serviceTitle"]}
+              fieldNames={fields}
               url="/admin/updateService"
             />
           ))

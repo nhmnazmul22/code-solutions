@@ -38,7 +38,6 @@ const AddTeamMember = () => {
         fields={fields}
         isSelectDisable={false}
         selectValues={selectValues}
-        isEditorDisable={true}
         mainFaction={addNewTeamMember}
          url="/admin/teams"
       />

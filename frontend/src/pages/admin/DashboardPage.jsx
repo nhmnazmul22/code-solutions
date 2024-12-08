@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
+import Dashboard from "../../components/admin/Dashboard";
 import Layout from "../../components/admin/layout/Layout";
 import useAdminStore from "../../store/AdminStore";
 
-const Dashboard = () => {
+const DashboardPage = () => {
   const { getAdminInfo } = useAdminStore();
 
   useEffect(() => {
@@ -13,9 +14,9 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <div>Dashboard</div>
+      <Dashboard />
     </Layout>
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

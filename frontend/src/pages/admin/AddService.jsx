@@ -8,10 +8,17 @@ const AddService = () => {
 
   const fields = [
     {
-      name: "serviceTitle",
+      name: "title",
       label: "Service Title",
       type: "text",
       placeholder: "Service Title",
+      required: true,
+    },
+    {
+      name: "description",
+      label: "Description",
+      type: "text",
+      placeholder: "Service Description",
       required: true,
     },
   ];
@@ -23,7 +30,6 @@ const AddService = () => {
         fields={fields}
         isSelectDisable={true}
         selectValues={[]}
-        isEditorDisable={false}
         mainFaction={addNewService}
         url="/admin/services"
       />

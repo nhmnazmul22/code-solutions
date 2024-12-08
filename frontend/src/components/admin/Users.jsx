@@ -11,6 +11,11 @@ const Users = () => {
     await deleteUser(userID);
   };
 
+  const fields = [
+    { label: "Full Name", name: "name" },
+    { label: "Email", name: "email" },
+  ];
+
   useEffect(() => {
     (async () => {
       await getUsersInfo();
@@ -47,7 +52,7 @@ const Users = () => {
               object={user}
               isDisable={true}
               handleDeleteAction={handleUserDelete}
-              fieldNames={["name", "email"]}
+              fieldNames={fields}
             />
           ))
         )}

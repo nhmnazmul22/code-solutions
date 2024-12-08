@@ -45,14 +45,6 @@ const SideMenu = () => {
             Blogs
           </li>
         </NavLink>
-        <div className="divider m-0 h-0"></div>
-        <NavLink to="/admin/customerMessages" className={activeClass}>
-          <li className="sidebar-menu-item">
-            {" "}
-            <TbMessageChatbot size={30} />
-            Customer
-          </li>
-        </NavLink>
       </ul>
       {/* Mobile Side bar Menu */}
       <ul className="flex flex-col lg:hidden">
@@ -91,17 +83,6 @@ const SideMenu = () => {
           <li className="mobile-sidebar-menu-item">
             <span className="tooltip tooltip-right" data-tip="Blogs">
               <HiOutlineNewspaper size={26} />
-            </span>
-          </li>
-        </NavLink>
-        <div className="divider m-0 h-0"></div>
-        <NavLink to="/admin/customerMessages" className={activeClass}>
-          <li className="mobile-sidebar-menu-item">
-            <span
-              className="tooltip tooltip-right"
-              data-tip="Customer Messages"
-            >
-              <TbMessageChatbot size={26} />
             </span>
           </li>
         </NavLink>

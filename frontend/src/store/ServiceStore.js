@@ -55,7 +55,7 @@ const useServiceStore = create((set) => ({
         ),
       }));
     } else {
-      toast.error("Team Member deletion failed");
+      toast.error("Service deletion failed");
     }
   },
 

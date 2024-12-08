@@ -10,10 +10,17 @@ const UpdateService = () => {
 
   const fields = [
     {
-      name: "serviceTitle",
+      name: "title",
       label: "Service Title",
       type: "text",
       placeholder: "Service Title",
+      required: true,
+    },
+    {
+      name: "description",
+      label: "Description",
+      type: "text",
+      placeholder: "Service Description",
       required: true,
     },
   ];
@@ -32,7 +39,6 @@ const UpdateService = () => {
         fields={fields}
         isSelectDisable={true}
         selectValues={[]}
-        isEditorDisable={false}
         mainFaction={updateService}
         initialData={serviceInfo}
         url="/admin/services"

@@ -1,38 +1,37 @@
 import React, { useEffect } from "react";
 import Loading from "../../skeleton/Loading";
-import useTeamStore from "../../store/TeamStore";
+import useBlogStore from "../../store/BlogStore";
 import ActionBar from "./common/ActionBar";
 import Card from "./common/Card";
 
-const Team = () => {
-  const { teamsInfo, getTeamsInfo, deleteTeamMember } = useTeamStore();
+const Blog = () => {
+  const { blogsInfo, getBlogsInfo, deleteBlog } = useBlogStore();
 
-  const deleteMember = async (memberID) => {
-    await deleteTeamMember(memberID);
+  const blogDelete = async (serviceID) => {
+    await deleteBlog(serviceID);
   };
 
   const fields = [
-    { label: "Full Name", name: "name" },
-    { label: "Bio", name: "bio" },
-    { label: "Role", name: "role" },
+    { label: "Blog Title", name: "title" },
+    { label: "Short Description", name: "shortDes" },
+    { label: "Category", name: "category" },
+    { label: "Tags", name: "tags" },
+    { label: "Description", name: "description" },
   ];
 
   useEffect(() => {
     (async () => {
-      await getTeamsInfo();
+      await getBlogsInfo();
     })();
   }, []);
+
   return (
     <>
-      <ActionBar
-        title="Team Members"
-        isDisable={false}
-        url="/admin/addTeamMember"
-      />
+      <ActionBar title="Blogs" isDisable={false} url="/admin/addBlog" />
       <div className="flex flex-col gap-3 p-5">
-        {!teamsInfo ? (
+        {!blogsInfo ? (
           <Loading />
-        ) : teamsInfo.length === 0 ? (
+        ) : blogsInfo.length === 0 ? (
           <div role="alert" className="alert">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -50,14 +49,14 @@ const Team = () => {
             <span>No user Found!!</span>
           </div>
         ) : (
-          teamsInfo.map((team) => (
+          blogsInfo.map((blog) => (
             <Card
-              key={team._id}
-              object={team}
+              key={blog._id}
+              object={blog}
               isDisable={false}
-              handleDeleteAction={deleteMember}
+              handleDeleteAction={blogDelete}
               fieldNames={fields}
-              url="/admin/updateTeamMember"
+              url="/admin/updateBlog"
             />
           ))
         )}
@@ -66,4 +65,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default Blog;

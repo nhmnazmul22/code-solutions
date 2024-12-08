@@ -1,15 +1,15 @@
 import React from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
+import AddBlog from "./pages/admin/AddBlog";
 import AddService from "./pages/admin/AddService";
 import AddTeamMember from "./pages/admin/AddTeamMember";
-import AdminProfile from "./pages/admin/AdminProfile";
 import BlogPage from "./pages/admin/BlogPage";
-import CustomerPage from "./pages/admin/CustomerPage";
-import Dashboard from "./pages/admin/Dashboard";
+import DashboardPage from "./pages/admin/DashboardPage";
 import LoginPage from "./pages/admin/LoginPage";
 import ServicesPage from "./pages/admin/ServicesPage";
 import TeamPage from "./pages/admin/TeamPage";
+import UpdateBlog from "./pages/admin/UpdateBlog";
 import UpdateService from "./pages/admin/UpdateService";
 import UpdateTeamMember from "./pages/admin/UpdateTeamMember";
 import UsersPage from "./pages/admin/UsersPage";
@@ -23,7 +23,7 @@ function App() {
           path="/admin/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <DashboardPage />
             </ProtectedRoute>
           }
         />
@@ -60,22 +60,6 @@ function App() {
           }
         />
         <Route
-          path="/admin/customerMessages"
-          element={
-            <ProtectedRoute>
-              <CustomerPage />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin/profile"
-          element={
-            <ProtectedRoute>
-              <AdminProfile />
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="admin/addTeamMember"
           element={
             <ProtectedRoute>
@@ -104,6 +88,22 @@ function App() {
           element={
             <ProtectedRoute>
               <UpdateService />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin/addBlog"
+          element={
+            <ProtectedRoute>
+              <AddBlog />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin/updateBlog/:blogID"
+          element={
+            <ProtectedRoute>
+              <UpdateBlog />
             </ProtectedRoute>
           }
         />

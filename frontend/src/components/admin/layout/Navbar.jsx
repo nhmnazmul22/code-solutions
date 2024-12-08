@@ -1,10 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AdminLogo from "../../../assets/images/codeSolution-Admin.png";
 import useAdminStore from "../../../store/AdminStore";
 
 const Navbar = () => {
-  const { adminInfo } = useAdminStore();
+  const { adminInfo, adminLogout } = useAdminStore();
+  const navigate = useNavigate();
+
+  const adminLogOutHandle = async () => {
+    await adminLogout();
+    navigate("/admin");
+  };
 
   return (
     <div className="navbar bg-base-200 shadow-sm py-3 px-10">
@@ -21,7 +27,7 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img alt="" src={adminInfo?.profileImg} />
+              <img alt="" src={adminInfo?.imgUrl} />
             </div>
           </div>
           <ul
@@ -29,12 +35,9 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 py-4 px-2 shadow"
           >
             <li>
-              <Link to="/admin/profile" className="justify-between text-[16px]">
-                Profile
-              </Link>
-            </li>
-            <li>
-              <a className="text-[16px]">Logout</a>
+              <a onClick={adminLogOutHandle} className="text-[16px]">
+                Logout
+              </a>
             </li>
           </ul>
         </div>
