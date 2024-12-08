@@ -13,10 +13,12 @@ import UpdateBlog from "./pages/admin/UpdateBlog";
 import UpdateService from "./pages/admin/UpdateService";
 import UpdateTeamMember from "./pages/admin/UpdateTeamMember";
 import UsersPage from "./pages/admin/UsersPage";
+import HomePage from "./pages/user/HomePage";
 import ProtectedRoute from "./routes/ProtectRoutes";
 function App() {
   return (
     <>
+      {/* Admin Panel Routes Start */}
       <Routes>
         <Route path="/admin" element={<LoginPage />} />
         <Route
@@ -108,6 +110,18 @@ function App() {
           }
         />
       </Routes>
+      {/* Admin Panel Routes End */}
+      {/* User Routes Start */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<HomePage />} />
+        <Route path="/signup" element={<HomePage />} />
+        <Route path="/blogs" element={<HomePage />} />
+        <Route path="/services" element={<HomePage />} />
+        <Route path="/about" element={<HomePage />} />
+        <Route path="/contact" element={<HomePage />} />
+      </Routes>
+      {/* User Routes End */}
       <Toaster position="top-center" />
     </>
   );

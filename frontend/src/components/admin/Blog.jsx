@@ -46,7 +46,7 @@ const Blog = () => {
                 d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               ></path>
             </svg>
-            <span>No user Found!!</span>
+            <span>No Blogs Found!!</span>
           </div>
         ) : (
           blogsInfo.map((blog) => (

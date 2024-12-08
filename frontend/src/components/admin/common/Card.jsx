@@ -7,7 +7,7 @@ const Card = ({ object, isDisable, handleDeleteAction, fieldNames, url }) => {
   return (
     <div className="bg-slate-200 p-5 my-1 flex flex-col gap-3 rounded-md w-full">
       <img
-        className="w-14 h-14 rounded-full cursor-pointer me-5"
+        className="w-40 h-40 object-cover rounded-full cursor-pointer me-5"
         src={object?.imgUrl}
         alt=""
       />

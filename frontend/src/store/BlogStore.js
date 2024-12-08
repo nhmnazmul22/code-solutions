@@ -24,10 +24,8 @@ const useBlogStore = create((set) => ({
       withCredentials: true,
     });
     if (res.data.status === "Success") {
-      console.log(res.data.data);
       set({ blogInfo: res.data.data });
     } else {
-      console.log(res.data.data);
       toast.error(res.data.data);
     }
   },
