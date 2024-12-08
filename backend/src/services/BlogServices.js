@@ -206,8 +206,8 @@ export const RemoveBlogService = async (req) => {
 
 export const GetBlogDataByIdService = async (req) => {
   try {
-    const serviceID = new ObjectID(req.params.serviceID);
-    const data = await ServiceModel.findOne({ _id: serviceID });
+    const blogID = new ObjectID(req.params.blogID);
+    const data = await BlogsModel.findOne({ _id: blogID });
     return { status: "Success", data: data };
   } catch (err) {
     return { status: "Failed", data: err.toString() };
