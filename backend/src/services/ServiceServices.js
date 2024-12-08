@@ -19,7 +19,7 @@ export const GetServiceDataService = async (req) => {
 export const GetServiceDataByIdService = async (req) => {
   try {
     const serviceID = new ObjectID(req.params.serviceID);
-    const data = await ServiceModel.find({ _id: serviceID });
+    const data = await ServiceModel.findOne({ _id: serviceID });
     return { status: "Success", data: data };
   } catch (err) {
     return { status: "Failed", data: err.toString() };
