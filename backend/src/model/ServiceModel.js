@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 // === Define Schema Data ===
 const DataSchema = new mongoose.Schema(
   {
-    serviceThumbnail: { type: String, require: true },
-    serviceTitle: { type: String, require: true },
-    serviceDescription: { type: String, require: true },
+    imgUrl: { type: String, require: true },
+    title: { type: String, require: true },
+    description: { type: String, require: true },
   },
   { timestamps: true, versionKey: false }
 );

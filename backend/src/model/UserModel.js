@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const DataSchema = new mongoose.Schema(
   {
     name: { type: String, require: true },
-    profileImg: {
+    imgUrl: {
       type: String,
       default: "https://i.ibb.co.com/5xxDgbR/demo-profile-img.jpg",
       require: true,

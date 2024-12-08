@@ -5,7 +5,7 @@ const DataSchema = new mongoose.Schema(
   {
     name: { type: String, require: true },
     bio: { type: String, require: true },
-    profileImg: { type: String, require: true },
+    imgUrl: { type: String, require: true },
     role: { type: String, require: true },
   },
   { timestamps: true, versionKey: false }

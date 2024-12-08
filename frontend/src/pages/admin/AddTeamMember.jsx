@@ -40,6 +40,7 @@ const AddTeamMember = () => {
         selectValues={selectValues}
         isEditorDisable={true}
         mainFaction={addNewTeamMember}
+         url="/admin/teams"
       />
     </Layout>
   );

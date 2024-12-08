@@ -5,9 +5,8 @@ const DataSchema = new mongoose.Schema(
   {
     title: { type: String, require: true },
     shortDes: { type: String, require: true },
-    thumbnail: { type: String },
-    blogImg: { type: String, require: true },
-    content: { type: String, require: true },
+    imgUrl: { type: String, require: true },
+    description: { type: String, require: true },
     tags: [{ type: String, require: true }],
     category: { type: String, require: true },
     adminID: { type: mongoose.Types.ObjectId, require: true },

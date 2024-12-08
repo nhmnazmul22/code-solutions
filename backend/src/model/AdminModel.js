@@ -7,7 +7,7 @@ const DataSchema = new mongoose.Schema(
     bio: { type: String, require: true },
     email: { type: String, require: true },
     password: { type: String, require: true },
-    profileImg: {
+    imgUrl: {
       type: String,
       default: "https://i.ibb.co.com/5xxDgbR/demo-profile-img.jpg",
       require: true,

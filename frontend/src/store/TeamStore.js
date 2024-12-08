@@ -17,6 +17,19 @@ const useTeamStore = create((set) => ({
     }
   },
 
+  memberInfo: null,
+  getMemberInfo: async (memberID) => {
+    set({ memberInfo: null });
+    const res = await axios.get(`${BASE_URL}/getTeamById/${memberID}`, {
+      withCredentials: true,
+    });
+    if (res.data.status === "Success") {
+      set({ memberInfo: res.data.data });
+    } else {
+      toast.error(res.data.data);
+    }
+  },
+
   addNewTeamMember: async (memberInfo) => {
     const res = await axios.post(`${BASE_URL}/setTeam`, memberInfo, {
       withCredentials: true,
@@ -44,10 +57,14 @@ const useTeamStore = create((set) => ({
     }
   },
 
-  updateTeamMember: async (memberID) => {
-    const res = await axios.post(`${BASE_URL}/updateTeam/${memberID}`, {
-      withCredentials: true,
-    });
+  updateTeamMember: async (memberInfo, memberID) => {
+    const res = await axios.post(
+      `${BASE_URL}/updateTeam/${memberID}`,
+      memberInfo,
+      {
+        withCredentials: true,
+      }
+    );
     if (res.data.status === "Success") {
       toast.success("Team Member Updated Successfully");
       return res.data.data;
