@@ -7,6 +7,12 @@ export const getServices = async (req, res) => {
   return res.json(result);
 };
 
+export const getServiceById = async (req, res) => {
+  const result = await ServiceService.GetServiceDataByIdService(req);
+  return res.json(result);
+};
+
+
 export const setService = async (req, res) => {
   const result = await ServiceService.SetServiceDataService(req);
   return res.json(result);

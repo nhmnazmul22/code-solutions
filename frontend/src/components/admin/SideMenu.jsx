@@ -1,10 +1,9 @@
 import React from "react";
 import { FaUsers } from "react-icons/fa";
-import { TbMessageChatbot } from "react-icons/tb";
-
 import { HiOutlineNewspaper } from "react-icons/hi2";
-import { MdHomeRepairService } from "react-icons/md";
+import { MdDashboard, MdHomeRepairService } from "react-icons/md";
 import { PiMicrosoftTeamsLogoFill } from "react-icons/pi";
+import { TbMessageChatbot } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 
 const SideMenu = () => {
@@ -13,6 +12,12 @@ const SideMenu = () => {
   return (
     <>
       <ul className="hidden lg:flex flex-col">
+        <NavLink to="/admin/dashboard" className={activeClass}>
+          <li className="sidebar-menu-item">
+            <MdDashboard size={30} /> Dashboard
+          </li>
+        </NavLink>
+        <div className="divider  m-0 h-0"></div>
         <NavLink to="/admin/users" className={activeClass}>
           <li className="sidebar-menu-item">
             <FaUsers size={30} /> Users
@@ -51,6 +56,13 @@ const SideMenu = () => {
       </ul>
       {/* Mobile Side bar Menu */}
       <ul className="flex flex-col lg:hidden">
+        <NavLink to="/admin/dashboard" className={activeClass}>
+          <li className="mobile-sidebar-menu-item">
+            <span className="tooltip tooltip-right" data-tip="Dashboard">
+              <MdDashboard size={26} />
+            </span>
+          </li>
+        </NavLink>
         <NavLink to="/admin/users" className={activeClass}>
           <li className="mobile-sidebar-menu-item">
             <span className="tooltip tooltip-right" data-tip="Users">

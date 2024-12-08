@@ -16,6 +16,16 @@ export const GetTeamService = async (req) => {
   }
 };
 
+export const GetTeamByIdService = async (req) => {
+  try {
+    const teamID = new ObjectID(req.params.teamID);
+    const data = await TeamModel.find({ _id: teamID });
+    return { status: "Success", data: data };
+  } catch (err) {
+    return { status: "Failed", data: err.toString() };
+  }
+};
+
 export const SetTeamService = async (req) => {
   try {
     const adminID = req.headers.id;

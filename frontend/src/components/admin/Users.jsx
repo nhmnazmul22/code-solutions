@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Loading from "../../skeleton/Loading";
 import useUserStore from "../../store/UserStore";
 import ActionBar from "./common/ActionBar";
-import HorizontalCard from "./common/HorizontalCard";
+import Card from "./common/Card";
 
 const Users = () => {
   const { userInfo, getUsersInfo, deleteUser } = useUserStore();
@@ -42,9 +42,10 @@ const Users = () => {
           </div>
         ) : (
           userInfo.map((user) => (
-            <HorizontalCard
+            <Card
               key={user._id}
               object={user}
+              isDisable={true}
               handleDeleteAction={handleUserDelete}
               fieldNames={["name", "email"]}
             />

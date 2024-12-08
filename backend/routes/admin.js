@@ -38,6 +38,7 @@ adminRoute.delete(
 
 // Define Blogs Routes
 adminRoute.get("/getBlogs", BlogsController.getBlogs);
+adminRoute.get("/getBlogById/:blogID", BlogsController.getBlogByID);
 adminRoute.post("/setBlog", AdminAuthVerify, BlogsController.setBlog);
 adminRoute.post(
   "/updateBlog/:blogID",
@@ -52,6 +53,7 @@ adminRoute.delete(
 
 // Define Services Routes
 adminRoute.get("/getServices", ServiceController.getServices);
+adminRoute.get("/getServiceById/:serviceID", ServiceController.getServices);
 adminRoute.post("/setServices", AdminAuthVerify, ServiceController.setService);
 adminRoute.post(
   "/updateServices/:serviceID",
@@ -66,6 +68,7 @@ adminRoute.delete(
 
 // Define Team Routes
 adminRoute.get("/getTeam", TeamController.getTeam);
+adminRoute.get("/getTeamById/:teamID", TeamController.getTeamById);
 adminRoute.post("/setTeam", AdminAuthVerify, TeamController.setTeam);
 adminRoute.post(
   "/updateTeam/:teamID",

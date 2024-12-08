@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import Loading from "../../skeleton/Loading";
 import useTeamStore from "../../store/TeamStore";
 import ActionBar from "./common/ActionBar";
-import HorizontalCard from "./common/HorizontalCard";
+import Card from "./common/Card";
 
 const Team = () => {
-  const { teamsInfo, getTeamsInfo } = useTeamStore();
+  const { teamsInfo, getTeamsInfo, deleteTeamMember } = useTeamStore();
 
-  const handleUserDelete = async (userID) => {
-    await deleteUser(userID);
+  const deleteMember = async (memberID) => {
+    await deleteTeamMember(memberID);
   };
 
   useEffect(() => {
@@ -18,7 +18,11 @@ const Team = () => {
   }, []);
   return (
     <>
-      <ActionBar title="Team Members" isDisable={false} />
+      <ActionBar
+        title="Team Members"
+        isDisable={false}
+        url="/admin/addTeamMember"
+      />
       <div className="flex flex-col gap-3 p-5">
         {!teamsInfo ? (
           <Loading />
@@ -41,11 +45,13 @@ const Team = () => {
           </div>
         ) : (
           teamsInfo.map((team) => (
-            <HorizontalCard
+            <Card
               key={team._id}
               object={team}
-              // handleDeleteAction={handleUserDelete}
+              isDisable={false}
+              handleDeleteAction={deleteMember}
               fieldNames={["name", "bio", "role"]}
+              url="/admin/updateTeamMember"
             />
           ))
         )}

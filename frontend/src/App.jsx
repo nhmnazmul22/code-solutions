@@ -1,6 +1,7 @@
 import React from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
+import AddTeamMember from "./pages/admin/AddTeamMember";
 import AdminProfile from "./pages/admin/AdminProfile";
 import BlogPage from "./pages/admin/BlogPage";
 import CustomerPage from "./pages/admin/CustomerPage";
@@ -8,6 +9,7 @@ import Dashboard from "./pages/admin/Dashboard";
 import LoginPage from "./pages/admin/LoginPage";
 import ServicesPage from "./pages/admin/ServicesPage";
 import TeamPage from "./pages/admin/TeamPage";
+import UpdateTeamMember from "./pages/admin/UpdateTeamMember";
 import UsersPage from "./pages/admin/UsersPage";
 import ProtectedRoute from "./routes/ProtectRoutes";
 function App() {
@@ -68,6 +70,22 @@ function App() {
           element={
             <ProtectedRoute>
               <AdminProfile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin/addTeamMember"
+          element={
+            <ProtectedRoute>
+              <AddTeamMember />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin/updateTeamMember/:teamID"
+          element={
+            <ProtectedRoute>
+              <UpdateTeamMember />
             </ProtectedRoute>
           }
         />

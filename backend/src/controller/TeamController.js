@@ -12,6 +12,11 @@ export const getTeam = async (req, res) => {
   return res.json(result);
 };
 
+export const getTeamById = async (req, res) => {
+  const result = await TeamServices.GetTeamByIdService(req);
+  return res.json(result);
+};
+
 export const updateTeam = async (req, res) => {
   const result = await TeamServices.UpdateTeamService(req);
   return res.json(result);
