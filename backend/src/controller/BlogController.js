@@ -26,3 +26,9 @@ export const removeBlog = async (req, res) => {
   const result = await BlogsServices.RemoveBlogService(req);
   res.json(result);
 };
+
+
+export const getBlogDataByID = async (req, res) => {
+  const result = await BlogsServices.GetBlogDataByIdService(req);
+  res.json(result);
+};

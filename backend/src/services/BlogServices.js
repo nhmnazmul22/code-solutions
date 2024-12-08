@@ -203,3 +203,13 @@ export const RemoveBlogService = async (req) => {
     return { status: "Failed", data: err.toString() };
   }
 };
+
+export const GetBlogDataByIdService = async (req) => {
+  try {
+    const serviceID = new ObjectID(req.params.serviceID);
+    const data = await ServiceModel.findOne({ _id: serviceID });
+    return { status: "Success", data: data };
+  } catch (err) {
+    return { status: "Failed", data: err.toString() };
+  }
+};

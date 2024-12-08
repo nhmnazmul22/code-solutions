@@ -39,6 +39,7 @@ adminRoute.delete(
 // Define Blogs Routes
 adminRoute.get("/getBlogs", BlogsController.getBlogs);
 adminRoute.get("/getBlogById/:blogID", BlogsController.getBlogByID);
+adminRoute.get("/getBlogDataById/:blogID", BlogsController.getBlogByID);
 adminRoute.post("/setBlog", AdminAuthVerify, BlogsController.setBlog);
 adminRoute.post(
   "/updateBlog/:blogID",
