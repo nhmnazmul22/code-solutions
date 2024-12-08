@@ -53,7 +53,7 @@ adminRoute.delete(
 
 // Define Services Routes
 adminRoute.get("/getServices", ServiceController.getServices);
-adminRoute.get("/getServiceById/:serviceID", ServiceController.getServices);
+adminRoute.get("/getServiceById/:serviceID", ServiceController.getServiceById);
 adminRoute.post("/setServices", AdminAuthVerify, ServiceController.setService);
 adminRoute.post(
   "/updateServices/:serviceID",
