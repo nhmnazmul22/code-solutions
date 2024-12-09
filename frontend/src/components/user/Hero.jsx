@@ -4,12 +4,14 @@ import heroImg from "../../assets/images/hero-img.png";
 
 const Hero = () => {
   return (
-    <div className="hero bg-white min-h-[700px]">
+    <div className="hero bg-gradient-to-r from-neutral-200	min-h-[700px] py-20">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img src={heroImg} className="w-[40%] rounded-lg" />
-        <div className="w-[60%]">
-          <h1 className="text-5xl font-bold">Welcome to Our Code Solution</h1>
-          <p className="py-6">
+        <img src={heroImg} className="lg:w-[40%] rounded-lg" />
+        <div className="lg:w-[60%] text-center lg:text-start">
+          <h1 className="text-3xl md:text-5xl font-bold">
+            Welcome to Our Code Solution
+          </h1>
+          <p className="py-6 text-base">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.

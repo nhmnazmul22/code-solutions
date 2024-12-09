@@ -1,11 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import Layout from "../../components/user/Layout/Layout";
+import Services from "../../components/user/Services";
 const ServicesPage = () => {
   return (
     <Layout>
-    <div>HomePage</div>
-  </Layout>
-  )
-}
+      <Services />
+    </Layout>
+  );
+};
 
-export default ServicesPage
+export default ServicesPage;

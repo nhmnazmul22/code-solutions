@@ -1,4 +1,5 @@
 import React from "react";
+import NewsLatter from "../NewsLatter";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 const Layout = ({ children }) => {
@@ -6,6 +7,7 @@ const Layout = ({ children }) => {
     <>
       <Navbar />
       <main>{children}</main>
+      <NewsLatter />
       <Footer />
     </>
   );

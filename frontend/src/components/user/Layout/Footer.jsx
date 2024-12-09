@@ -1,8 +1,12 @@
 import React from "react";
+import { IconContext } from "react-icons";
+import { AiFillLinkedin } from "react-icons/ai";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaSquareInstagram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <footer className="footer bg-base-200 text-base-content p-10">
+    <footer className="footer bg-slate-800 text-white p-10">
       <nav>
         <h6 className="footer-title">Services</h6>
         <Link to="/blogs" className="link link-hover">
@@ -34,20 +38,30 @@ const Footer = () => {
         <Link className="link link-hover">Cookie policy</Link>
       </nav>
       <form>
-        <h6 className="footer-title">Newsletter</h6>
-        <fieldset className="form-control w-80">
-          <label className="label">
-            <span className="label-text">Enter your email address</span>
-          </label>
-          <div className="join">
-            <input
-              type="text"
-              placeholder="username@site.com"
-              className="input input-bordered join-item"
-            />
-            <button className="btn btn-primary join-item">Subscribe</button>
+        <h6 className="footer-title">Contact</h6>
+        <address>
+          <p>
+            West Box Nagar, Sarulia-1361<br></br> Demra, Dhaka
+          </p>
+          <p>
+            <span className="font-bold">Phone: </span>+880160*********
+          </p>
+          <p>
+            <span className="font-bold">Email: </span>codesolutions@yahoo.com
+          </p>
+          <div className="flex gap-4 justify-start items-center mt-2">
+            <IconContext.Provider
+              value={{
+                className:
+                  "text-dark hover:text-blue-600 duration-300 cursor-pointer",
+              }}
+            >
+              <FaFacebookSquare size={30} />
+              <AiFillLinkedin size={30} />
+              <FaSquareInstagram size={30} />
+            </IconContext.Provider>
           </div>
-        </fieldset>
+        </address>
       </form>
     </footer>
   );

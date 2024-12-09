@@ -1,5 +1,4 @@
 const expirationTime = new Date().getTime() + 1000 * 60 * 60 * 24 * 30;
-import Cookies from "js-cookie";
 
 export function unauthorized(code) {
   if (code === 401) {
@@ -20,4 +19,5 @@ export function getToken(name) {
 export function removeToken(name) {
   return localStorage.removeItem(name);
 }
+
 

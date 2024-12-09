@@ -58,18 +58,16 @@ const useBlogStore = create((set) => ({
   },
 
   updateBlog: async (blogInfo, blogID) => {
-    const res = await axios.post(
-      `${BASE_URL}/updateServices/${blogID}`,
-      blogInfo,
-      {
-        withCredentials: true,
-      }
-    );
+    console.log(blogID);
+    const res = await axios.post(`${BASE_URL}/updateBlog/${blogID}`, blogInfo, {
+      withCredentials: true,
+    });
     if (res.data.status === "Success") {
-      toast.success("Service Updated Successfully");
+      toast.success("Blog Updated Successfully");
       return res.data.data;
     } else {
-      toast.error("Service deletion failed");
+      console.log(res);
+      toast.error("Blog Update Failed");
       return res.data.data;
     }
   },
