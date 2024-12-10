@@ -40,7 +40,7 @@ app.use(express.urlencoded({ max: MAX_JSON_FILE, extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://coding-solutions.netlify.app"],
     credentials: true,
   })
 );
