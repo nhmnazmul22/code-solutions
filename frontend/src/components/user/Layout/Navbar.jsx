@@ -1,10 +1,23 @@
 import React, { useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../assets/images/CodeSolution.png";
 import useUserStore from "../../../store/UserStore";
+
 const Navbar = () => {
-  const { isUserLogin, verifyUser, userProfileInfo, getUsersProfileInfo } =
-    useUserStore();
+  const {
+    isUserLogin,
+    verifyUser,
+    userProfileInfo,
+    getUsersProfileInfo,
+    userLogout,
+  } = useUserStore();
+
+  const navigate = useNavigate();
+
+  const logoutUser = async () => {
+    await userLogout();
+    navigate("/");
+  };
 
   useEffect(() => {
     verifyUser();
@@ -13,7 +26,6 @@ const Navbar = () => {
   useEffect(() => {
     (async () => {
       await getUsersProfileInfo();
-      console.log(userProfileInfo);
     })();
   }, []);
 
@@ -61,7 +73,10 @@ const Navbar = () => {
                 <li className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg mb-2">
                   <NavLink to="/profile">Profile</NavLink>
                 </li>
-                <li className="bg-red-500 text-white hover:bg-red-600 rounded-lg mb-2">
+                <li
+                  onClick={logoutUser}
+                  className="bg-red-500 text-white hover:bg-red-600 rounded-lg mb-2"
+                >
                   <a>Logout</a>
                 </li>
               </div>
@@ -103,7 +118,7 @@ const Navbar = () => {
                 <li>
                   <a className="text-[16px]">Profile</a>
                 </li>
-                <li>
+                <li onClick={logoutUser}>
                   <a className="text-[16px]">Logout</a>
                 </li>
               </ul>

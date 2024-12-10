@@ -1,7 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 import { create } from "zustand";
-import { getToken, setToken } from "../utility/utility";
+import { getToken, removeToken, setToken } from "../utility/utility";
 const ADMIN_BASE_URL = "https://code-solutions-one.vercel.app/admin";
 const APP_BASE_URL = "https://code-solutions-one.vercel.app/app";
 
@@ -76,14 +76,19 @@ const useUserStore = create((set) => ({
 
   userProfileInfo: null,
   getUsersProfileInfo: async () => {
-    const res = await axios.get(`${APP_BASE_URL}/getUserProfile`, {
-      withCredentials: true,
-    });
-    console.log(res.data.status);
-    if (res.data.status === "Success") {
-      set({ userProfileInfo: res.data.data });
-    } else {
-      toast.error("User info not found");
+    try {
+      const res = await axios.get(`${APP_BASE_URL}/getUserProfile`, {
+        withCredentials: true,
+      });
+      if (res.data.status === "Success") {
+        set({ userProfileInfo: res.data.data[0] });
+        return res.data.data;
+      } else {
+        toast.error("User info not found");
+        return null;
+      }
+    } catch (err) {
+      return null;
     }
   },
 }));

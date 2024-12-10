@@ -5,19 +5,24 @@ const BASE_URL = "https://code-solutions-one.vercel.app/app";
 
 const useMessageStore = create((set) => ({
   setMessage: async (messageInfo) => {
-    const res = await axios.post(
-      `${BASE_URL}/setCustomerMessage`,
-      messageInfo,
-      {
-        withCredentials: true,
+    try {
+      const res = await axios.post(
+        `${BASE_URL}/setCustomerMessage`,
+        messageInfo,
+        {
+          withCredentials: true,
+        }
+      );
+      if (res.data.status === "Success") {
+        toast.success("Message Sent Successful");
+        return res.data.data;
+      } else {
+        toast.success("Message Sent Failed");
+        return null;
       }
-    );
-    if (res.data.status === "Success") {
-      toast.success("Message Sent Successful");
-      return res.data.data;
-    } else {
-      toast.success("Message Sent Failed");
-      return res.data.data;
+    } catch (err) {
+      toast.error("Please, Login First !!");
+      return null;
     }
   },
 }));

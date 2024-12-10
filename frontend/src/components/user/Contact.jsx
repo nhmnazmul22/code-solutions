@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 import contactImg from "../../assets/images/contact.svg";
 import useMessageStore from "../../store/MessageStore";
 const Contact = () => {
   const { setMessage } = useMessageStore();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-    const result = await setMessage(data);
-    console.log(result);
+
+    if (data.name && data.email && data.subject && data.message) {
+      setLoading(true);
+      const result = await setMessage(data);
+      setLoading(false);
+
+      if (result) {
+        e.target.reset();
+      }
+    } else {
+      toast.error("Please, Enter your info and message");
+    }
   };
 
   return (
@@ -77,7 +89,11 @@ const Contact = () => {
               />
             </div>
             <button className="btn bg-blue-600 text-white hover:bg-blue-500">
-              Submit
+              {!loading ? (
+                "Submit"
+              ) : (
+                <span className="loading loading-spinner loading-md"></span>
+              )}
             </button>
           </form>
         </div>

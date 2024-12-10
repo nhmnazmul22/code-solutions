@@ -23,7 +23,9 @@ const Login = () => {
     }
 
     if (data.email && data.password) {
+      setLoading(true);
       await loginUser(data);
+      setLoading(false);
       navigate("/");
     }
   };
