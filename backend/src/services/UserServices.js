@@ -68,11 +68,11 @@ export const loginService = async (req, res) => {
         const token = EncodedToken(user._id, reqBody["email"]);
 
         const cookieOptions = {
-          expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30), // 30 days
           httpOnly: true,
           secure: true,
-          path: "/app",
-          sameSite: "strict",
+          path: "/",
+          sameSite: "None",
+          expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
         };
         res.cookie("appToken", token, cookieOptions);
 

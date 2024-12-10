@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/images/CodeSolution.png";
+import useUserStore from "../../../store/UserStore";
 const Navbar = () => {
+  const { isUserLogin, verifyUser, userProfileInfo, getUsersProfileInfo } =
+    useUserStore();
+
+  useEffect(() => {
+    verifyUser();
+  }, [verifyUser, isUserLogin]);
+
+  useEffect(() => {
+    (async () => {
+      await getUsersProfileInfo();
+      console.log(userProfileInfo);
+    })();
+  }, []);
+
   return (
     <div className="navbar bg-white shadow-md sticky top-0 px-10 z-50">
       <div className="navbar-start order-3 md:order-[-1] justify-end md:justify-start">
@@ -41,14 +56,25 @@ const Navbar = () => {
             <li className="mb-2">
               <NavLink to="/contact">Contact</NavLink>
             </li>
-            <div className="md:hidden block">
-              <li className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg mb-2">
-                <NavLink to="/login">Login</NavLink>
-              </li>
-              <li className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg mb-2">
-                <NavLink to="/signup">Signup</NavLink>
-              </li>
-            </div>
+            {isUserLogin === true ? (
+              <div className="md:hidden block">
+                <li className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg mb-2">
+                  <NavLink to="/profile">Profile</NavLink>
+                </li>
+                <li className="bg-red-500 text-white hover:bg-red-600 rounded-lg mb-2">
+                  <a>Logout</a>
+                </li>
+              </div>
+            ) : (
+              <div className="md:hidden block">
+                <li className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg mb-2">
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+                <li className="bg-blue-500 text-white hover:bg-blue-600 rounded-lg mb-2">
+                  <NavLink to="/signup">Signup</NavLink>
+                </li>
+              </div>
+            )}
           </ul>
         </div>
       </div>
@@ -58,19 +84,45 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-end  order-1 md:order-[-1]">
-        <div className="hidden md:flex gap-5">
-          <button className="btn bg-blue-500 text-white font-semibold hover:bg-blue-600">
-            Login
-          </button>
-          <button className="btn bg-blue-500 text-white font-semibold hover:bg-blue-600">
-            Signup
-          </button>
-        </div>
-        <div className="avatar hidden">
-          <div className="w-12 h-12 rounded-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+        {isUserLogin === true ? (
+          <div className=" hidden md:block flex-none gap-2">
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img alt="" src={userProfileInfo?.imgUrl} />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 py-4 px-2 shadow"
+              >
+                <li>
+                  <a className="text-[16px]">Profile</a>
+                </li>
+                <li>
+                  <a className="text-[16px]">Logout</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="hidden md:flex gap-5">
+            <Link to="/login">
+              <button className="btn bg-blue-500 text-white font-semibold hover:bg-blue-600">
+                Login
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className="btn bg-blue-500 text-white font-semibold hover:bg-blue-600">
+                Signup
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

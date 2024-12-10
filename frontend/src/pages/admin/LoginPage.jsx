@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Login from "../../components/common/Login.jsx";
+import Login from "../../components/admin/Login.jsx";
 import AdminStore from "../../store/AdminStore.js";
 
 import { Navigate } from "react-router-dom";

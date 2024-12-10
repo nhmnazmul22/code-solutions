@@ -11,7 +11,7 @@ const NewsLatter = () => {
           Your monthly dose of updates, tips, and exclusive content!
         </p>
         <fieldset className="form-control w-full">
-          <div className="join w-[30%] m-auto mt-5">
+          <div className="join w-full md:w-[70%] lg:w-[40%] m-auto mt-5">
             <input
               type="text"
               placeholder="username@site.com"

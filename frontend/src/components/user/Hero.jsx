@@ -4,7 +4,7 @@ import heroImg from "../../assets/images/hero-img.png";
 
 const Hero = () => {
   return (
-    <div className="hero bg-gradient-to-r from-neutral-200	min-h-[700px] py-20">
+    <div className="hero bg-gradient-to-r from-neutral-200	min-h-[700px] py-20 md:px-[5%]">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img src={heroImg} className="lg:w-[40%] rounded-lg" />
         <div className="lg:w-[60%] text-center lg:text-start">

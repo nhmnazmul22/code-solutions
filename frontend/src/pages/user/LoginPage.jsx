@@ -1,11 +1,12 @@
-import React from 'react'
-import Layout from '../../components/user/Layout/Layout'
+import React from "react";
+import Layout from "../../components/user/Layout/Layout";
+import Login from "../../components/user/Login";
 const LoginPage = () => {
   return (
     <Layout>
-    <div>HomePage</div>
-  </Layout>
-  )
-}
+      <Login />
+    </Layout>
+  );
+};
 
-export default LoginPage
+export default LoginPage;
