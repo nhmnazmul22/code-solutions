@@ -32,26 +32,3 @@ Code Solutions is a platform offering web development and IT services. The syste
 
 ---
 
-## Features
-
-1. **Frontend**: User-friendly interface designed for seamless interaction.
-2. **Backend**: Handles data processing, storage, and server-side logic.
-3. **Admin Panel**: Complete control panel for managing content, users, and other settings.
-
----
-
-## Technologies Used
-
-- **Frontend**: React, HTML, CSS, JavaScript
-- **Backend**: Node.js, Express, MongoDB
-- **Hosting**: Netlify (Frontend), Vercel (Backend)
-
----
-
-## Setup Instructions
-
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   ```
