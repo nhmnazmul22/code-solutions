@@ -1,4 +1,3 @@
-import React from "react";
 import { Toaster } from "react-hot-toast";
 import { Routes } from "react-router-dom";
 import AdminRoutes from "./routes/AdminRoutes";
